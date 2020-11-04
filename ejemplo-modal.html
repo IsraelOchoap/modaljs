@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Ejemplo de modal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Ejemplo de modal HTML, CSS y JS</h1>
+        </header>
+        <main>
+            <div class="btns">
+                <input type="button" id="btnConfirm" name="btnCofirmar" value=" Confirmacion " onclick="ShowConfirm()" />
+                <input type="button" id="btnInformation" name="btnCofirmar" value=" Alerta " onclick="ShowAlert()" />
+                <input type="button" id="btnProcess" name="btnCofirmar" value=" Proceso " onclick="ShowProcess()" />
+            </div>
+        </main>
+    </div>
+    <script src="modal_form.js"></script>
+    <script>
+        const ShowConfirm = async () => {
+            resp = await DialogForm.ShowQuestionAsync({ Titulo: "Guardar información", Mensaje: "¿La información es correcta?" })
+            if (resp == "OK") {
+                alert("Se acepta continuar");
+            }
+            else
+            {
+                alert("Se canceló el proceso");
+            }
+        }
+
+        const ShowAlert = async () => {
+            resp = await DialogForm.ShowInformationAsync({ Titulo: "Alta de prospecto", Mensaje: "El prospecto se agrego con éxito" })
+            alert("Se leyó el aviso");            
+        }
+
+        const ShowProcess = async () => {
+            DialogForm.ShowWaiting({ Titulo: "Guardando información", Mensaje: "Por favor espera", Spiner: true })  
+            setTimeout(() => { DialogForm.Close() }, 5000)            
+        }
+
+    </script>
+</body>
+</html>
