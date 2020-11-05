@@ -1,12 +1,12 @@
-body{
-    margin:0;
-    padding:0;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:1rem;
-    display:flex;
-    justify-items:center;
-    align-items:center;
-    height:100vh;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
 }
 .wrapper{
     margin:0 auto;
@@ -22,5 +22,15 @@ header{
 }
 .btns input{
     font-size:.9rem;
-    padding:0.2rem 1rem;
+    padding:0.4rem 1.5rem;
+    color: #fff;
+    background-color: #1866c6;
+    border:0 solid;
+}
+code, pre {
+    font-size:.9rem;
+}
+.text-blue{
+    color: #1866c6;
+    font-weight:600;
 }
