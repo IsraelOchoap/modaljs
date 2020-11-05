@@ -15,28 +15,72 @@
                 <input type="button" id="btnInformation" name="btnCofirmar" value=" Alerta " onclick="ShowAlert()" />
                 <input type="button" id="btnProcess" name="btnCofirmar" value=" Proceso " onclick="ShowProcess()" />
             </div>
+
+            <h3>Confirmación</h3>
+            <code>
+                <pre>                
+                    <b class="text-blue">const</b> ShowConfirm = <b class="text-blue">async</b> () => {
+                        resp = <b class="text-blue">await</b> DialogForm.ShowQuestionAsync({
+                                    Titulo: "Guardar información",
+                                    Mensaje: "¿La información es correcta?"
+                                    })
+                        <b class="text-blue">if</b> (resp == "OK") {
+                            console.log("Se acepta continuar");
+                            }
+                        <b class="text-blue">else</b>
+                            {
+                            console.log("Se canceló el proceso");
+                        }
+                    }
+                </pre>
+            </code>
+
+            <h3>Alerta/Aviso</h3>
+            <code>
+                <pre>                
+                    const ShowAlert = async () => {
+                        resp = await DialogForm.ShowInformationAsync({ 
+                                    Titulo: "Alta de prospecto", 
+                                    Mensaje: "El prospecto se agrego con éxito" 
+                                    })
+                        console.log("Se leyó el aviso");            
+                    }
+                </pre>
+            </code>
+
+            <h3>Procesando/Working</h3>
+            <code>
+                <pre>                
+                    const ShowProcess = async () => {
+                        DialogForm.ShowWaiting({ 
+                            Titulo: "Guardando información", 
+                            Mensaje: "Por favor espera", Spiner: true })  
+                        setTimeout(() => { DialogForm.Close() }, 5000)            
+                    }
+                </pre>
+            </code>
         </main>
     </div>
     <script src="modal_form.js"></script>
     <script>
         const ShowConfirm = async () => {
-            resp = await DialogForm.ShowQuestionAsync({ Titulo: "Guardar informaci�n", Mensaje: "�La informaci�n es correcta?" })
+            resp = await DialogForm.ShowQuestionAsync({ Titulo: "Guardar información", Mensaje: "¿La información es correcta?" })
             if (resp == "OK") {
-                alert("Se acepta continuar");
+                console.log("Se acepta continuar");
             }
             else
             {
-                alert("Se cancel� el proceso");
+                console.log("Se canceló el proceso");
             }
         }
 
         const ShowAlert = async () => {
-            resp = await DialogForm.ShowInformationAsync({ Titulo: "Alta de prospecto", Mensaje: "El prospecto se agrego con �xito" })
-            alert("Se ley� el aviso");            
+            resp = await DialogForm.ShowInformationAsync({ Titulo: "Alta de prospecto", Mensaje: "El prospecto se agrego con éxito" })
+            console.log("Se leyó el aviso");            
         }
 
         const ShowProcess = async () => {
-            DialogForm.ShowWaiting({ Titulo: "Guardando informaci�n", Mensaje: "Por favor espera", Spiner: true })  
+            DialogForm.ShowWaiting({ Titulo: "Guardando información", Mensaje: "Por favor espera", Spiner: true })  
             setTimeout(() => { DialogForm.Close() }, 5000)            
         }
 
