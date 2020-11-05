@@ -7,7 +7,7 @@
 <body>
     <div class="wrapper">
         <header>
-            <h1>Ejemplo de ventana de dialogo (modal) HTML, CSS y JS</h1>
+            <h1>Ejemplo de ventana de diálogo (modal) HTML, CSS y JS</h1>
         </header>
         <main>
             <div class="btns">
@@ -16,7 +16,7 @@
                 <input type="button" id="btnProcess" name="btnCofirmar" value=" Proceso " onclick="ShowProcess()" />
             </div>
 
-            <h3>Confirmación</h3>
+            <h3>Confirmación/Question</h3>
             <code>
                 <pre>                
                     <b class="text-blue">const</b> ShowConfirm = <b class="text-blue">async</b> () => {
@@ -35,7 +35,7 @@
                 </pre>
             </code>
 
-            <h3>Alerta/Aviso</h3>
+            <h3>Aviso/Alert</h3>
             <code>
                 <pre>                
                     const ShowAlert = async () => {
@@ -54,7 +54,7 @@
                     const ShowProcess = async () => {
                         DialogForm.ShowWaiting({ 
                             Titulo: "Guardando información", 
-                            Mensaje: "Por favor espera", Spiner: true })  
+                            Mensaje: "Por favor espera..." })  
                         setTimeout(() => { DialogForm.Close() }, 5000)            
                     }
                 </pre>
@@ -80,7 +80,7 @@
         }
 
         const ShowProcess = async () => {
-            DialogForm.ShowWaiting({ Titulo: "Guardando información", Mensaje: "Por favor espera", Spiner: true })  
+            DialogForm.ShowWaiting({ Titulo: "Guardando información", Mensaje: "Por favor espera...", Spiner: true })  
             setTimeout(() => { DialogForm.Close() }, 5000)            
         }
 
