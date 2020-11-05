@@ -11,9 +11,15 @@
                     z-index: 150;
                     width:100%;
                     height:100%;    
-                    transform: Scale(1)
-                    transition: transform ease 200ms;
+                    
                     padding: 1rem;
+                    --dlg-title-bgcolor: #1772d4;
+                    --dlg-title-color: #fff;
+                    --dlg-bnt-ok-color: #fff;
+                    --dlg-bnt-ok-bgcolor: #1772d4;
+                    --dlg-btn-cancel-color: #1772d4;
+                    --dlg-btn-cancel-bgcolor: #f3f3f3;
+                    --dlg-msg-font-weight: 500;
                 }
                 .dialog-form {
                     display: block;
@@ -24,16 +30,21 @@
                     box-shadow: 3px 3px 6px #393939;
                     width:100%;
                     z-index: 1100;
+                    overflow: hidden;
+                    border-radius: 6px 6px 0 0;
+                    transform: scale(1);
+                    transition: transform ease 200ms;
                 }
                 .dialog-title {
                     padding: 0.5em 1.5rem;
                     font-size: 1rem;
-                    background-color: #284f79;
-                    color: #fff;
+                    color: var(--dlg-title-color);
+                    background-color: var(--dlg-title-bgcolor);                  
                 }
                 .dialog-msg {
                     padding: 1.5rem;
                     font-size: 0.9rem;
+                    font-weight:var(--dlg-msg-font-weight);
                 }
                 .dialog-btns {
                     padding: 0.5em 1rem;
@@ -41,9 +52,11 @@
                     background-color: #e3e6ea;
                 }
                 .dialog-hide{
-                    transform: Scale(0)
+                    transform: scale(0);
                 }
-
+                .dialog-hide .dialog-form{
+                    transform: scale(0);
+                }
                 .dialog-btn{
                     border-radius: 3px;
                     padding: 0.3rem 1rem;
@@ -57,7 +70,17 @@
                 .dialog-btn:hover{
                     box-shadow: 0 0 4px rgba(0,0,0,.3);
                 }
-
+                .dialog-btn-ok{
+                    color: var(--dlg-bnt-ok-color);
+                    background-color: var(--dlg-bnt-ok-bgcolor);
+                }
+                .dialog-btn-cancel{
+                    color: var(--dlg-btn-cancel-color);
+                    background-color: var(--dlg-btn-cancel-bgcolor);
+                }
+                .dialog-spiner-container {
+                    padding-bottom:20px;
+                 }
                 .dialog-object-hide{
                     display:none
                 }
@@ -87,13 +110,13 @@
         let Template = `<div class="dialog-form">    
                             <div class="dialog-title" id="DialogTitle"></div>
                             <div class="dialog-msg" id="DialogMSG"></div>
-                            <div class="dialog-object-hide" id="DialogSpiner">
+                            <div class="dialog-spiner-container dialog-object-hide" id="DialogSpiner">
                                 <span class="dialog-spiner dialog-spiner-animate"></span>
                             </div>
                             <div class="dialog-btns dialog-object-hide" id="DialogBts"></div>
                             <div class="dialog-btns dialog-object-hide" id="DefaultBts">
-                                <input type="button" id="btnOK" value="Aceptar" accesskey="a" class="dialog-btn"/>
-                                <input type="button" id="btnCancel" value="Cancelar" accesskey="c" class="dialog-btn"/>
+                                <input type="button" id="btnOK" value="Aceptar" accesskey="a" class="dialog-btn dialog-btn-ok"/>
+                                <input type="button" id="btnCancel" value="Cancelar" accesskey="c" class="dialog-btn dialog-btn-cancel"/>
                             </div>
                         </div>`
 
@@ -199,12 +222,10 @@
         this.Spiner.classList.remove("dialog-spiner-animate")
     };
 
-    ShowWaiting({ Titulo = "Titulo de prueba", Mensaje = "Mesaje de prueba" }) {
+    ShowWaiting({ Titulo = "Título de prueba", Mensaje = "Mesaje de prueba" }) {
         this.ShowMe({ Titulo, Mensaje, Spiner:true })        
     }
     
 }
 
 const DialogForm = new ModalForm()
-
-
