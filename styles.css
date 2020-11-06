@@ -28,7 +28,7 @@ header{
     border:0 solid;
     margin-bottom:0.5rem;
 }
-code {
+code, pre {
     font-size: .9rem;
     min-width: 300px;
     max-width: 800px;
