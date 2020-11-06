@@ -102,6 +102,10 @@
                     animation: animatespiner linear 1s infinite;
                 }
 
+                .hide-body-scroll{
+                    overflow:hidden;
+                }
+
                 @keyframes animatespiner {
                     from {transform: rotate(0deg);}
                     to{transform: rotate(360deg);}
@@ -181,6 +185,7 @@
     }
     ShowMe({ Titulo = "Titulo de prueba", Mensaje = "Mesaje de prueba", Spiner = false }) {
         this.Dialog.classList.remove("dialog-hide");
+        this.Dialog.classList.remove("dialog-hide");
         this.DialogTitle.innerHTML = Titulo
         this.DialogMSG.innerHTML = Mensaje
         if (Spiner) {
@@ -225,7 +230,8 @@
     }
 
     Close() {
-        this.Dialog.classList.add("dialog-hide");
+        document.body.classList.remove("hide-body-scroll")
+        this.Dialog.classList.add("dialog-hide")
         this.DialogSpiner.classList.add("dialog-object-hide")
         this.Spiner.classList.remove("dialog-spiner-animate")
     };
