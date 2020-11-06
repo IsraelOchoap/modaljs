@@ -1,6 +1,14 @@
 ﻿class ModalForm {  
     constructor() {
         let CSS = `.dialog-container {
+                    --dlg-title-bgcolor: #1772d4;
+                    --dlg-title-color: #fff;
+                    --dlg-bnt-ok-color: #fff;
+                    --dlg-bnt-ok-bgcolor: #1772d4;
+                    --dlg-btn-cancel-color: #1772d4;
+                    --dlg-btn-cancel-bgcolor: #f3f3f3;
+                    --dlg-msg-font-weight: 500;
+
                     display: flex;
                     justify-items: center;
                     align-items: center;
@@ -10,16 +18,9 @@
                     left: 0;
                     z-index: 150;
                     width:100%;
-                    height:100%;    
-                    
-                    padding: 1rem;
-                    --dlg-title-bgcolor: #1772d4;
-                    --dlg-title-color: #fff;
-                    --dlg-bnt-ok-color: #fff;
-                    --dlg-bnt-ok-bgcolor: #1772d4;
-                    --dlg-btn-cancel-color: #1772d4;
-                    --dlg-btn-cancel-bgcolor: #f3f3f3;
-                    --dlg-msg-font-weight: 500;
+                    height:100%;                   
+                    padding: 0rem;
+
                 }
                 .dialog-form {
                     display: block;
