@@ -25,7 +25,7 @@
                 .dialog-form {
                     display: block;
                     margin: 5em auto;
-                    min-width: 300px;
+                    min-width: 350px;
                     max-width: 500px;
                     background-color: #fff;
                     box-shadow: 3px 3px 6px #393939;
@@ -106,7 +106,14 @@
                     from {transform: rotate(0deg);}
                     to{transform: rotate(360deg);}
                 }
-               `
+
+                @media (max-width: 600px) { 
+                    .dialog-form {
+                        min-width: calc(100vw - 2rem);
+                        width: calc(100vw - 2rem);
+                    }
+                }              
+                `
 
         let Template = `<div class="dialog-form">    
                             <div class="dialog-title" id="DialogTitle"></div>
