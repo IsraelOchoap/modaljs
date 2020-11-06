@@ -26,9 +26,14 @@ header{
     color: #fff;
     background-color: #1866c6;
     border:0 solid;
+    margin-bottom:0.5rem;
 }
-code, pre {
-    font-size:.9rem;
+code {
+    font-size: .9rem;
+    min-width: 300px;
+    max-width: 800px;
+    width: 100%;
+    overflow: auto;
 }
 .text-blue{
     color: #1866c6;
