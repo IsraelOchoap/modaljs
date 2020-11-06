@@ -184,8 +184,8 @@
         } 
     }
     ShowMe({ Titulo = "Titulo de prueba", Mensaje = "Mesaje de prueba", Spiner = false }) {
-        this.Dialog.classList.remove("dialog-hide");
-        this.Dialog.classList.remove("dialog-hide");
+         document.body.classList.add("hide-body-scroll")
+        this.Dialog.classList.remove("dialog-hide")
         this.DialogTitle.innerHTML = Titulo
         this.DialogMSG.innerHTML = Mensaje
         if (Spiner) {
